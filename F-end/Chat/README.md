@@ -18,4 +18,3 @@ npm i express@4.21.2 mongoose@8.10.1 jsonwebtoken@9.0.2 bcryptjs@2.4.3
 npm i dotenv@16.4.7 cookie-parser
 @1.4.7    
 
-mongodb+srv://bhargavjamana_db_user:L68ke7T2CbRm8IXb@cluster0.tlu5wds.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
