@@ -33,17 +33,25 @@ export const signup = async (req, res) => {
       password: hashedPassword,
     });
 
-    await newUser.save();
-    generateToken(newUser._id, res);
 
-    return res.status(201).json({
-      _id: newUser._id,
-      fullName: newUser.fullName,
-      email: newUser.email,
-      profilePic: newUser.profilePic,
-    });
+    if(newUser){
+
+      const savedUser = await newUser.save();
+      generateToken(savedUser._id, res);
+      return res.status(201).json({
+        _id: newUser._id,
+        fullName: newUser.fullName,
+        email: newUser.email,
+        profilePic: newUser.profilePic,
+      });
+    }
+    // await newUser.save();
+    // generateToken(newUser._id, res);
+
   } catch (error) {
     console.error("Error in signup controller:", error.message);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
+
+
